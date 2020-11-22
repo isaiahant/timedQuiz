@@ -21,3 +21,48 @@ realAnswers.push(`.`)
 questions.push(`The Debugger is an excellent tool for ___`)
 fakeAnswers.push([`Fixing errors for you`, `Optimizing the code for you`, `Removing the word "bug" from your code`, `Doing nothing. You shouldn't use it`])
 realAnswers.push(`Exposing bugs in your code`)
+
+let randQuestions = []
+
+let questionNum = 0;
+
+let correctAnswer = 0
+
+let quizTime = 0;
+
+let quizInterval = undefined;
+
+
+let viewScores = document.getElementById("viewScores")
+
+let clock = document.getElementById('clock')
+
+let heading = document.getElementById(`heading`)
+
+let desc = document.getElementById(`desc`)
+
+let answerButtons = document.getElementById(`answerButtons`)
+
+let form = document.getElementById(`enterName`)
+
+let input = document.getElementById(`input`)
+
+let answers = []
+answers.push(document.getElementById(`answer1`))
+answers.push(document.getElementById(`answer2`))
+answers.push(document.getElementById(`answer3`))
+answers.push(document.getElementById(`answer4`))
+
+let start = document.getElementById(`start`)
+
+let highScores = document.getElementById(`highScores`)
+
+let goBack = document.getElementById(`goBack`)
+
+let clear = document.getElementById(`clear`)
+
+let hr = document.getElementById(`line`)
+hr.style.display = `none`
+
+let result = document.getElementById(`result`)
+result.style.display = `none`
