@@ -66,3 +66,8 @@ hr.style.display = `none`
 
 let result = document.getElementById(`result`)
 result.style.display = `none`
+
+
+resultTimer = undefined;
+
+
