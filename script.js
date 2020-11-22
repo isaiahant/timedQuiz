@@ -189,4 +189,76 @@ const nextQuestion = () => {
   }
 
 
-  
+  randNum = randInt(4)
+  answers[randNum].textContent = `${(randNum + 1)}. ${realAnswers[randQuestion]}`
+  correctAnswer = randNum
+
+}
+
+const startQuiz = () => {
+  viewScores.style.display = "none"
+  heading.style.display = "block"
+  heading.textAlign = "left"
+
+  desc.style.display = "none"
+
+  answerButtons.style.display = "block"
+
+  start.style.display = "none"
+
+  let len = questions.length
+  for (let i = 0; i < len; i++) {
+    randQuestions.push(i)
+  }
+
+  quizTime = 75
+  clock.textContent = `Time: ${quizTime}`
+  quizInterval = setInterval(() => {
+    quizTime--
+    clock.textContent = `Time: ${quizTime}`
+    if (quizTime < 1) {
+      stopQuiz()
+    }
+  }, 1000)
+
+  nextQuestion()
+
+}
+
+const initPage = () => {
+  heading.style.display = "block"
+  heading.textContent = "Coding Quiz"
+  heading.style.textAlign = "center"
+
+  desc.style.display = "block"
+  desc.textContent = "Answer the folloing code related questions before the timer runs out. You'll be scored based off your remaining time. Keep in mind that getting the wrong answer will decrease the timer by 15 seconds."
+  desc.style.textAlign = "center"
+
+  answerButtons.style.display = "none"
+  form.style.display = "none"
+  start.style.display = "block"
+  highScores.style.display = "none"
+  goBack.style.display = "none"
+  clear.style.display = "none"
+  hr.style.display = "none"
+  result.style.display = "none"
+}
+
+initPage()
+
+document.addEventListener('click', event => {
+  let btn = event.target
+  if (btn.classList.contains('start')) {
+    startQuiz()
+  } else if (btn.classList.contains('answer')) {
+    checkAnswer(btn.getAttribute("value"))
+  } else if (btn.classList.contains('submit')) {
+    event.preventDefault()
+    submitHighscore(input.value)
+    input.value = ``
+  } else if (btn.classList.contains(`clear`)) {
+    clearHighscores()
+  } else if (btn.classList.contains(`viewScores`)) {
+    showHighscroes()
+  }
+})
