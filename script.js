@@ -2,7 +2,7 @@
 let time = 60
 
 document.getElementById('Start').addEventListener('click'=> {
-  document.getElementById('timer').
+  document.getElementById('timer').text
     setInterval(() => {
       time--
     }, 1000);
@@ -40,5 +40,8 @@ let question4 = {
 }
 
 let question5 = {
-  question: ''
+  question: 'What is rubber ducking?'
+  answers: ['A console command, A debugging method, A workplace game, A best practice coding syntax']
+  correctAnswer: 'A debugging method'
+  wrongAnswers: 'A console command, A workplace game, A best practice coding syntax'
 }
