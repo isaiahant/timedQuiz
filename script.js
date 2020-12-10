@@ -1,47 +1,71 @@
 // timer
-let time = 60
+let timeRemaining = 60
 
-document.getElementById('Start').addEventListener('click'=> {
-  document.getElementById('timer').text
-    setInterval(() => {
-      time--
-    }, 1000);
-})
-
+// score
+let score = 0
 
 // question time
-let question1 = {
-  question: `Which index would you choose in order to get item 3 out of this array?
-  [water, dog, house, cup, mouse, box, backpack]`
-  answers: ['4, 1, 3, 5']
-  correctAnswer: '3'
-  wrongAnswers: '4, 1, 5'
-}
+let questions = [
+  {
+    question: `Which index would you choose in order to get item 3 out of this array?
+  [water, dog, house, cup, mouse, box, backpack]?`,
+    correctAnswer: 'C',
+    wrongAnswers: 'A, B, D',
+  },
 
-let question2 = {
-  question: 'Which symbol is used to call elements in CSS?'
-  answers: ['!, ., #, @']
-  correctAnswer: '#'
-  wrongAnswers: '!, ., @'
-}
+  {
+    question: 'Which symbol is used to call elements in CSS?',
+    correctAnswer: 'B',
+    wrongAnswers: 'A, C, D',
+},
 
-let question3 = {
-  question: 'What is the shorthand to increase an increment by 1?'
-  answers: ['++, --, $, !']
-  correctAnswer: '++'
-  wrongAnswers: '--, $, !'
-}
+  {
+    question: 'What is the shorthand to increase an increment by 1?',
+    correctAnswer: 'C',
+    wrongAnswers: 'A, B, D',
+  },
 
-let question4 = {
-  question: 'When do you need to add the event.preventDefault function?'
-  answers: ['When adding a new file to a page, When a button is inside a form, When attaching a link to text, When embedding a video']
-  correctAnswer: 'When a button is inside a forum'
-  wrongAnswers: 'When adding a new file to a page, Whrn attaching a link to text, When embedding a video'
-}
+  {
+    question: 'When do you need to add the event.preventDefault function?',
+    correctAnswer: 'A',
+    wrongAnswers: 'B, C, D',
+  },
 
-let question5 = {
-  question: 'What is rubber ducking?'
-  answers: ['A console command, A debugging method, A workplace game, A best practice coding syntax']
-  correctAnswer: 'A debugging method'
-  wrongAnswers: 'A console command, A workplace game, A best practice coding syntax'
-}
+  {
+    question: 'What is rubber ducking?',
+    correctAnswer: 'A',
+    wrongAnswers: 'B, C, D',
+  }
+];
+
+// assorted variables
+var questionIndex = 0
+var startBtn = document.querySelector('#start')
+var questionDiv = document.querySelector('#currentQuestion')
+var interval = 0
+var currentTime = document.querySelector('#timer')
+
+
+
+
+
+
+startBtn.addEventListener("click", function () {
+  if (interval === 0) {
+    interval = setInterval(function () {
+      timeRemaining--;
+      currentTime.textContent = timeRemaining;
+
+      if (timeRemaining <= 0) {
+        clearInterval(interval);
+        fin();
+        currentTime.textContent = "Times Up!"
+
+      }
+    }, 1000);
+  }
+  showQuestion(questionIndex);
+
+
+
+})
