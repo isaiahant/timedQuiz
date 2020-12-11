@@ -7,7 +7,7 @@ let score = 0
 // question time
 let questions = [
   {
-    question: `Which index would you choose in order to get item 3 out of this array?
+    question: `Which index would you choose in order to get cup out of this array?
   [water, dog, house, cup, mouse, box, backpack]?`,
     correctAnswer: 'C',
     wrongAnswers: 'A, B, D',
@@ -17,7 +17,7 @@ let questions = [
     question: 'Which symbol is used to call elements in CSS?',
     correctAnswer: 'B',
     wrongAnswers: 'A, C, D',
-},
+  },
 
   {
     question: 'What is the shorthand to increase an increment by 1?',
@@ -44,13 +44,23 @@ var startBtn = document.querySelector('#start')
 var questionDiv = document.querySelector('#currentQuestion')
 var interval = 0
 var currentTime = document.querySelector('#timer')
-
-
+var ans1 = document.querySelector('#answer1')
+var ans2 = document.querySelector('#answer2')
+var ans3 = document.querySelector('#answer3')
+var ans4 = document.querySelector('#answer4')
+var nextBtn = document.querySelector('#next')
 
 
 
 
 startBtn.addEventListener("click", function () {
+  questionDiv.textContent = `Which index would you choose in order to get cup out of this array ?
+    [water, dog, house, cup, mouse, box, backpack] ?`
+  ans1.textContent = '4'
+  ans2.textContent = '2'
+  ans3.textContent = '3'
+  ans4.textContent = '5'
+
   if (interval === 0) {
     interval = setInterval(function () {
       timeRemaining--;
@@ -63,9 +73,11 @@ startBtn.addEventListener("click", function () {
 
       }
     }, 1000);
+
   }
-  showQuestion(questionIndex);
 
+})
 
-
+nextBtn.addEventListener("click", function () {
+  
 })
