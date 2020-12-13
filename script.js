@@ -49,7 +49,7 @@ var ans2 = document.querySelector('#answer2')
 var ans3 = document.querySelector('#answer3')
 var ans4 = document.querySelector('#answer4')
 var nextBtn = document.querySelector('#next')
-
+var userInput = document.querySelector('#userInput')
 
 
 
@@ -79,5 +79,50 @@ startBtn.addEventListener("click", function () {
 })
 
 nextBtn.addEventListener("click", function () {
-  
+  if (userInput.textContent = 'C'||'c') {
+    score++
+    alert('Correct')
+    console.log(score);
+  }
+      else {
+        alert('wrong')
+        console.log(score);
+  }
+  // question2()
 })
+
+
+
+
+function question2 () {
+  questionDiv.textContent = 'Which symbol is used to call elements in CSS?'
+  ans1.textContent = '!'
+  ans2.textContent = '#'
+  ans3.textContent = '.'
+  ans4.textContent = '@'
+  
+}
+
+function question3() {
+  questionDiv.textContent = 'What is the shorthand to increase an increment by 1?'
+  ans1.textContent = '--'
+  ans2.textContent = '..'
+  ans3.textContent = '++'
+  ans4.textContent = '**'
+}
+
+function question4() {
+  questionDiv.textContent = 'When do you need to add the event.preventDefault function?'
+  ans1.textContent = 'When a button is inside a form.'
+  ans2.textContent = 'When embedding a video or image into the HTML file.'
+  ans3.textContent = 'Immediately upon loading the web page.'
+  ans4.textContent = 'Anytime the tag <span> exists.'
+}
+
+function question5() {
+  questionDiv.textContent = 'What is rubber ducking?'
+  ans1.textContent = 'A method of debugging.'
+  ans2.textContent = 'A type of server lag.'
+  ans3.textContent = 'A common office game played among coworkers.'
+  ans4.textContent = 'One of many error code messages.'
+}
