@@ -49,7 +49,7 @@ var ans2 = document.querySelector('#answer2')
 var ans3 = document.querySelector('#answer3')
 var ans4 = document.querySelector('#answer4')
 var nextBtn = document.querySelector('#next')
-var userInput = document.querySelector('#userInput')
+
 
 
 
@@ -79,15 +79,18 @@ startBtn.addEventListener("click", function () {
 })
 
 nextBtn.addEventListener("click", function () {
-  if (userInput.textContent = 'C'||'c') {
+  event.preventDefault()
+  
+  if (document.getElementById('userInput').textContent == 'C') {
     score++
     alert('Correct')
     console.log(score);
   }
-      else {
-        alert('wrong')
-        console.log(score);
+  else {
+    alert('Wrong')
+    console.log(score);
   }
+  document.getElementById('userInput').value = ''
   // question2()
 })
 
