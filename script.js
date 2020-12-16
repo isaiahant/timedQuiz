@@ -81,7 +81,7 @@ startBtn.addEventListener("click", function () {
 nextBtn.addEventListener("click", function () {
   event.preventDefault()
   
-  if (document.getElementById('userInput').textContent == 'C') {
+  if (document.getElementById('userInput').input == 'C') {
     score++
     alert('Correct')
     console.log(score);
