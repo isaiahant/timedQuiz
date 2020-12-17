@@ -48,7 +48,7 @@ var ans1 = document.querySelector('#answer1')
 var ans2 = document.querySelector('#answer2')
 var ans3 = document.querySelector('#answer3')
 var ans4 = document.querySelector('#answer4')
-var nextBtn = document.querySelector('#next')
+
 
 
 
@@ -78,19 +78,19 @@ startBtn.addEventListener("click", function () {
 
 })
 
-nextBtn.addEventListener("click", function () {
-  event.preventDefault()
+document.getElementById('next').addEventListener("click", function () {
   
-  if (document.getElementById('userInput').input == 'C') {
+  if (document.getElementById('input').value === 'C') {
     score++
     alert('Correct')
     console.log(score);
   }
   else {
-    alert('Wrong')
-    console.log(score);
-  }
-  document.getElementById('userInput').value = ''
+    timeRemaining = timeRemaining - 8
+      alert('Wrong');
+      console.log(score);
+    }
+  document.getElementById('input').value = ''
   // question2()
 })
 

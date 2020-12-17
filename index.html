@@ -20,33 +20,38 @@
     <div class="card-body">
       <h5 class="card-title">This is a quiz on coding knowledge</h5>
       <p class="card-text">You will have one minute to finish the quiz, each wrong answer will take time off the
-        remaining time left.
+        remaining time left. Capitalization in your answers matter.
         Click start when ready to proceed.
       </p>
     </div>
     <button type="button" class="btn btn-primary" id="start">Start Quiz</button>
     <h2>Time left</h2>
     <h1 id="timer"></h1>
-    </div>
+  </div>
 
-    <div class="card">
-      <h5 class="card-header"></h5>
-      <div class="card-body">
-        <h5 class="card-title" id="currentQuestion">Example text</h5>
-        <p class="card-text" ><span>A)</span> <span id="answer1">example text</span> </p>
-        <p class="card-text" ><span>B)</span> <span id="answer2">example text</span> </p>
-        <p class="card-text" ><span>C)</span> <span id="answer3">example text</span> </p>
-        <p class="card-text" ><span>D)</span> <span id="answer4">example text</span> </p>
-      </div>
+  <div class="card">
+    <h5 class="card-header"></h5>
+    <div class="card-body">
+      <h5 class="card-title" id="currentQuestion">Example text</h5>
+      <p class="card-text"><span>A)</span> <span id="answer1">example text</span> </p>
+      <p class="card-text"><span>B)</span> <span id="answer2">example text</span> </p>
+      <p class="card-text"><span>C)</span> <span id="answer3">example text</span> </p>
+      <p class="card-text"><span>D)</span> <span id="answer4">example text</span> </p>
     </div>
-    
-    <div id="container">
-      <input type="text" class="form-control" aria-label="Text input with radio button" id="userInput" placeholder="Answer Here">
-      <button type="button" class="btn btn-primary" id="next">Next Question</button>
+  </div>
+
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text"></span>
     </div>
+    <textarea class="form-control" id="input" aria-label="With textarea" placeholder="Answer here"></textarea>
+  </div>
+  <div id="nextContainer">
+    <button type="button" class="btn btn-primary" id="next">Next Question</button>
+  </div>
 
 
-  
+
 
 
 
@@ -57,7 +62,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
     crossorigin="anonymous"></script>
-    <script src="../timedQuiz/script.js"></script>
+  <script src="../timedQuiz/script.js"></script>
 </body>
 
 </html>
