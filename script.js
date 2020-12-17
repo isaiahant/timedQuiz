@@ -68,9 +68,8 @@ startBtn.addEventListener("click", function () {
 
       if (timeRemaining <= 0) {
         clearInterval(interval);
-        fin();
         currentTime.textContent = "Times Up!"
-
+        clearBoard()
       }
     }, 1000);
 
@@ -86,12 +85,13 @@ document.getElementById('next').addEventListener("click", function () {
     console.log(score);
   }
   else {
-    timeRemaining = timeRemaining - 8
+    timeRemaining = timeRemaining - 10
       alert('Wrong');
       console.log(score);
     }
   document.getElementById('input').value = ''
-  // question2()
+  question2()
+
 })
 
 
@@ -128,4 +128,16 @@ function question5() {
   ans2.textContent = 'A type of server lag.'
   ans3.textContent = 'A common office game played among coworkers.'
   ans4.textContent = 'One of many error code messages.'
+}
+
+function clearBoard() {
+  questionDiv.textContent = 'Quiz complete.'
+  ans1.textContent = 'Your Score ' + score
+  ans2.textContent = ''
+  ans3.textContent = ''
+  ans4.textContent = ''
+  document.getElementById('a').textContent = ''
+  document.getElementById('b').textContent = ''
+  document.getElementById('c').textContent = ''
+  document.getElementById('d').textContent = ''
 }
