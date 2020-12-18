@@ -1,7 +1,15 @@
-// timer
+// assorted variables
+var p = document.getElementById('nextContainer');
+var questionIndex = 0
+var startBtn = document.querySelector('#start')
+var questionDiv = document.querySelector('#currentQuestion')
+var interval = 0
+var currentTime = document.querySelector('#timer')
+var ans1 = document.querySelector('#answer1')
+var ans2 = document.querySelector('#answer2')
+var ans3 = document.querySelector('#answer3')
+var ans4 = document.querySelector('#answer4')
 let timeRemaining = 60
-
-// score
 let score = 0
 
 // question time
@@ -30,7 +38,7 @@ let questions = [
     correctAnswer: 'A',
     wrongAnswers: 'B, C, D',
   },
-
+  
   {
     question: 'What is rubber ducking?',
     correctAnswer: 'A',
@@ -38,21 +46,11 @@ let questions = [
   }
 ];
 
-// assorted variables
-var questionIndex = 0
-var startBtn = document.querySelector('#start')
-var questionDiv = document.querySelector('#currentQuestion')
-var interval = 0
-var currentTime = document.querySelector('#timer')
-var ans1 = document.querySelector('#answer1')
-var ans2 = document.querySelector('#answer2')
-var ans3 = document.querySelector('#answer3')
-var ans4 = document.querySelector('#answer4')
 
 
 
 
-
+// big functions
 startBtn.addEventListener("click", function () {
   questionDiv.textContent = `Which index would you choose in order to get cup out of this array ?
     [water, dog, house, cup, mouse, box, backpack] ?`
@@ -79,7 +77,7 @@ startBtn.addEventListener("click", function () {
 
 document.getElementById('next').addEventListener("click", function () {
   
-  if (document.getElementById('input').value === 'C') {
+  if (document.getElementById('input').value === 'C'||'c') {
     score++
     alert('Correct')
     console.log(score);
@@ -91,12 +89,14 @@ document.getElementById('next').addEventListener("click", function () {
     }
   document.getElementById('input').value = ''
   question2()
+  removeElement1()
+  addElement2()
 
 })
 
 
 
-
+// functions to be called
 function question2 () {
   questionDiv.textContent = 'Which symbol is used to call elements in CSS?'
   ans1.textContent = '!'
@@ -141,3 +141,20 @@ function clearBoard() {
   document.getElementById('c').textContent = ''
   document.getElementById('d').textContent = ''
 }
+
+function removeElement1(next) {
+  
+  var element = document.getElementById('next');
+  element.remove('next')
+  console.log('hello');
+}
+
+function addElement2() {
+
+  var newElement = document.createElement('button');
+  newElement.setAttribute('id', 'next2');
+  newElement.innerHTML = '<button type= "button" class = "btn btn-primary">Next Question</button>';
+  p.appendChild(newElement);
+ 
+}
+
