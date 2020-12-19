@@ -1,14 +1,12 @@
 // assorted variables
-var questionIndex = 0
-var startBtn = document.querySelector('#start')
 var questionDiv = document.querySelector('#currentQuestion')
-var interval = 0
 var currentTime = document.querySelector('#timer')
 var ans1 = document.querySelector('#answer1')
 var ans2 = document.querySelector('#answer2')
 var ans3 = document.querySelector('#answer3')
 var ans4 = document.querySelector('#answer4')
 let timeRemaining = 60
+var interval = 0
 let score = 0
 
 // question time
@@ -51,7 +49,7 @@ let questions = [
 
 
 // big functions
-startBtn.addEventListener("click", function () {
+document.getElementById('start').addEventListener("click", function () {
   questionDiv.value = `Which index would you choose in order to get cup out of this array ?
     [water, dog, house, cup, mouse, box, backpack] ?`
   ans1.value = '4'
@@ -171,11 +169,11 @@ document.getElementById('initial').addEventListener("click", function record() {
   var result = document.createElement('li')
   if (prompt !== null) {
     result.innerHTML = x + score
-    document.getElementById('resultContainer').appendChild(result)
+    document.getElementById('resultList').appendChild(result)
   }
   document.getElementById('initial').style.display = 'none'
   document.getElementById('next').style.display = 'block'
-  reset()
+  
 })
 
 
@@ -225,12 +223,3 @@ function clearBoard() {
   document.getElementById('d').value = ''
 }
 
-function reset() {
-  score = 0
-  timeRemaining = 60
-  questionDiv.value = 'Example text'
-  ans1.value = 'example text'
-  ans2.value = 'example text'
-  ans3.value = 'example text'
-  ans4.value = 'example text'
-}
