@@ -8,7 +8,7 @@ functionality it somehow managed to break the quiz I had already finished prior.
 Then while in the process of trying to fix the quiz I somehow managed to break the start button that activates the timer and initializes the quiz in the first place.
 I don't even know where to begin to fix this besides restructuring the whole app and starting from scratch again.
 
-I have to many missing assignments to keep workig on this and not enough time to do them all. So im turning this in as is hoping you can see the code and can read
+I have too many missing assignments to keep workig on this and not enough time to do them all. So im turning this in as is hoping you can see the code and can read
 what it is supposed to do even if it isn't currently functioning properly.
 
 Grade this as you will, I just wanted to explain why it isnt functioning as desired.
