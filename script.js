@@ -10,7 +10,7 @@ var ans3 = document.querySelector('#answer3')
 var ans4 = document.querySelector('#answer4')
 let timeRemaining = 60
 let score = 0
-
+let input = document.getElementById('input')
 // question time
 let questions = [
   {
@@ -19,25 +19,25 @@ let questions = [
     correctAnswer: 'C',
     wrongAnswers: 'A, B, D',
   },
-  
+
   {
     question: 'Which symbol is used to call elements in CSS?',
     correctAnswer: 'B',
     wrongAnswers: 'A, C, D',
   },
-  
+
   {
     question: 'What is the shorthand to increase an increment by 1?',
     correctAnswer: 'C',
     wrongAnswers: 'A, B, D',
   },
-  
+
   {
     question: 'When do you need to add the event.preventDefault function?',
     correctAnswer: 'A',
     wrongAnswers: 'B, C, D',
   },
-  
+
   {
     question: 'What is rubber ducking?',
     correctAnswer: 'A',
@@ -49,34 +49,35 @@ let questions = [
 
 
 
+
 // big functions
 startBtn.addEventListener("click", function () {
   questionDiv.textContent = `Which index would you choose in order to get cup out of this array ?
-  [water, dog, house, cup, mouse, box, backpack] ?`
+    [water, dog, house, cup, mouse, box, backpack] ?`
   ans1.textContent = '4'
   ans2.textContent = '2'
   ans3.textContent = '3'
   ans4.textContent = '5'
-  
+
   if (interval === 0) {
     interval = setInterval(function () {
       timeRemaining--;
       currentTime.textContent = timeRemaining;
-      
+
       if (timeRemaining <= 0) {
         clearInterval(interval);
         currentTime.textContent = "Times Up!"
         clearBoard()
       }
     }, 1000);
-    
+
   }
-  
+
 })
 
 document.getElementById('next').addEventListener("click", function () {
-  
-  if (document.getElementById('input').value === 'C'||'c') {
+
+  if (input.textContent === 'C' || 'c') {
     score++
     alert('Correct')
     console.log(score);
@@ -86,95 +87,106 @@ document.getElementById('next').addEventListener("click", function () {
     alert('Wrong');
     console.log(score);
   }
-  document.getElementById('input').value = ''
+  input.textContent = ''
   question2()
-  removeElement1()
-  addElement2()
-  
-})
-document.getElementById('next2').addEventListener("click", function () {
-  
-  if (document.getElementById('input').value === 'B'||'b') {
-    score++
-    alert('Correct')
-    console.log(score);
-  }
-  else {
-    timeRemaining = timeRemaining - 10
-    alert('Wrong');
-    console.log(score);
-  }
-  document.getElementById('input').value = ''
-  question3()
-  removeElement2()
-  addElement3()
-  
-})
-document.getElementById('next3').addEventListener("click", function () {
-  
-  if (document.getElementById('input').value === 'C'||'c') {
-    score++
-    alert('Correct')
-    console.log(score);
-  }
-  else {
-    timeRemaining = timeRemaining - 10
-    alert('Wrong');
-    console.log(score);
-  }
-  document.getElementById('input').value = ''
-  question4()
-  removeElement3()
-  addElement4()
-  
-})
-document.getElementById('next4').addEventListener("click", function () {
-  
-  if (document.getElementById('input').value === 'A'||'a') {
-    score++
-    alert('Correct')
-    console.log(score);
-  }
-  else {
-    timeRemaining = timeRemaining - 10
-    alert('Wrong');
-    console.log(score);
-  }
-  document.getElementById('input').value = ''
-  question5()
-  removeElement4()
-  addElement5()
-  
-})
-document.getElementById('submit').addEventListener("click", function () {
-  
-  if (document.getElementById('input').value === 'C'||'c') {
-    score++
-    alert('Correct')
-    console.log(score);
-  }
-  else {
-    timeRemaining = timeRemaining - 10
-    alert('Wrong');
-    console.log(score);
-  }
-  document.getElementById('input').value = ''
-  clearBoard()
-  removeElement5()
-  addElement1()
-  
+  document.getElementById('next').style.display = 'none'
+  document.getElementById('next2').style.display = 'block'
+
 })
 
+document.getElementById('next2').addEventListener("click", function () {
+
+  if (input.textContent === 'B' || 'b') {
+    score++
+    alert('Correct')
+    console.log(score);
+  }
+  else {
+    timeRemaining = timeRemaining - 10
+    alert('Wrong');
+    console.log(score);
+  }
+  input.textContent = ''
+  question3()
+  document.getElementById('next2').style.display = 'none'
+  document.getElementById('next3').style.display = 'block'
+})
+
+document.getElementById('next3').addEventListener("click", function () {
+
+  if (input.textContent === 'C' || 'c') {
+    score++
+    alert('Correct')
+    console.log(score);
+  }
+  else {
+    timeRemaining = timeRemaining - 10
+    alert('Wrong');
+    console.log(score);
+  }
+  input.textContent = ''
+  question4()
+  document.getElementById('next3').style.display = 'none'
+  document.getElementById('next4').style.display = 'block'
+})
+
+document.getElementById('next4').addEventListener("click", function () {
+
+  if (input.textContent === 'A' || 'a') {
+    score++
+    alert('Correct')
+    console.log(score);
+  }
+  else {
+    timeRemaining = timeRemaining - 10
+    alert('Wrong');
+    console.log(score);
+  }
+  input.textContent = ''
+  question5()
+  document.getElementById('next4').style.display = 'none'
+  document.getElementById('submit').style.display = 'block'
+})
+
+document.getElementById('submit').addEventListener("click", function () {
+
+  if (input.textContent === 'C' || 'c') {
+    score++
+    alert('Correct')
+    console.log(score);
+  }
+  else {
+    timeRemaining = timeRemaining - 10
+    alert('Wrong');
+    console.log(score);
+  }
+  input.textContent = ''
+  clearBoard()
+  document.getElementById('submit').style.display = 'none'
+  document.getElementById('initial').style.display = 'block'
+})
+
+document.getElementById('initial').addEventListener("click", function record() {
+  let x = prompt('If you would like to record your score please type your initials.')
+  var result = document.createElement('li')
+  if (prompt !== null) {
+    result.innerHTML = x + score
+    document.getElementById('resultContainer').appendChild(result)
+  }
+  document.getElementById('initial').style.display = 'none'
+  document.getElementById('next').style.display = 'block'
+  reset()
+})
 
 
 // functions to be called
-function question2 () {
+function question2() {
   questionDiv.textContent = 'Which symbol is used to call elements in CSS?'
   ans1.textContent = '!'
   ans2.textContent = '#'
   ans3.textContent = '.'
   ans4.textContent = '@'
-  
+
 }
 
 function question3() {
@@ -213,73 +225,12 @@ function clearBoard() {
   document.getElementById('d').textContent = ''
 }
 
-function removeElement1() {
-  
-  document.getElementById('next').remove()
-  console.log('hello');
+function reset() {
+  score = 0
+  timeRemaining = 60
+  questionDiv.textContent = 'Example text'
+  ans1.textContent = 'example text'
+  ans2.textContent = 'example text'
+  ans3.textContent = 'example text'
+  ans4.textContent = 'example text'
 }
-function removeElement2() {
-  
-  document.getElementById('next2').remove()
-  console.log('hello');
-}
-function removeElement3() {
-  
-  document.getElementById('next3').remove()
-  console.log('hello');
-}
-function removeElement4() {
-  
-  document.getElementById('next4').remove()
-  console.log('hello');
-}
-
-function addElement2() {
-  
-  var newElement = document.createElement('button');
-  newElement.setAttribute('id', 'next2');
-  newElement.setAttribute('type', 'button');
-  newElement.setAttribute('class', 'btn btn-primary');
-  newElement.innerHTML = 'Next Question';
-  document.getElementById('nextContainer').appendChild(newElement)
-}
-function addElement3() {
-  
-  var newElement = document.createElement('button');
-  newElement.setAttribute('id', 'next3');
-  newElement.setAttribute('type', 'button');
-  newElement.setAttribute('class', 'btn btn-primary');
-  newElement.innerHTML = 'Next Question';
-  document.getElementById('nextContainer').appendChild(newElement)
-}
-function addElement4() {
-  
-  var newElement = document.createElement('button');
-  newElement.setAttribute('id', 'next4');
-  newElement.setAttribute('type', 'button');
-  newElement.setAttribute('class', 'btn btn-primary');
-  newElement.innerHTML = 'Next Question';
-  document.getElementById('nextContainer').appendChild(newElement)
-}
-function addElement5() {
-  
-  var newElement = document.createElement('button');
-  newElement.setAttribute('id', 'Submit');
-  newElement.setAttribute('type', 'button');
-  newElement.setAttribute('class', 'btn btn-primary');
-  newElement.innerHTML = 'Submit Answers';
-  document.getElementById('nextContainer').appendChild(newElement)
-}
-function addElement6() {
-  
-  var newElement = document.createElement('button');
-  newElement.setAttribute('id', 'intial');
-  newElement.setAttribute('type', 'button');
-  newElement.setAttribute('class', 'btn btn-primary');
-  newElement.innerHTML = 'Record Score';
-  document.getElementById('nextContainer').appendChild(newElement)
-}
-  
-  
-  
-
