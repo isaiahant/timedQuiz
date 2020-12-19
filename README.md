@@ -11,4 +11,4 @@ I don't even know where to begin to fix this besides restructuring the whole app
 I have to many missing assignments to keep workig on this and not enough time to do them all. So im turning this in as is hoping you can see the code and can read
 what it is supposed to do even if it isn't currently functioning properly.
 
-Grade this as you will, I just wanted to explain why it isnt working.
+Grade this as you will, I just wanted to explain why it isnt functioning as desired.
